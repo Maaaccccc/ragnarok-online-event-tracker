@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ragnarok Online Event Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <div class="header-brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="icon-sword">
+              <path d="M14.5 13.5L11 10 9 12l3.5 3.5M10.5 9.5L7 6 5 8l3.5 3.5M19 3l-1.5 1.5 2 2L21 5l-2-2zM3 21l3.5-3.5 2 2L5 23 3 21z" />
+              <path d="M18.5 7.5l-9 9M13 3l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1 class="site-title">Ragnarok Online Event Tracker</h1>
+            <p class="site-subtitle">Live Server Schedules & Time Tracker</p>
+          </div>
+        </div>
+        <div class="server-clock-card">
+          <span class="clock-label">SERVER TIME (UTC+8)</span>
+          <div class="clock-time" id="serverClock">--:--:-- --</div>
+          <div class="clock-date" id="serverDate">--- --, ----</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Error Banner -->
+    <div id="errorBanner" class="error-banner hidden">
+      <div class="error-icon">⚠️</div>
+      <div class="error-message" id="errorMessage">Unable to load event schedule. Please check events.json configuration.</div>
+    </div>
+
+    <!-- Top Status Section -->
+    <section class="status-grid" aria-label="Event Status Overview">
+      <!-- Special Event Card -->
+      <div class="status-card card-special">
+        <div class="card-header">
+          <span class="card-badge badge-special">SPECIAL EVENT</span>
+        </div>
+        <div class="card-body" id="specialEventContent">
+          <div class="status-value loading">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Ongoing Event Card -->
+      <div class="status-card card-ongoing">
+        <div class="card-header">
+          <span class="card-badge badge-ongoing">
+            <span class="pulse-dot"></span> ONGOING EVENT
+          </span>
+        </div>
+        <div class="card-body" id="ongoingEventContent">
+          <div class="status-value loading">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Upcoming Event Card -->
+      <div class="status-card card-upcoming">
+        <div class="card-header">
+          <span class="card-badge badge-upcoming">UPCOMING EVENT</span>
+        </div>
+        <div class="card-body" id="upcomingEventContent">
+          <div class="status-value loading">Loading...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section: Filters + Event Table -->
+    <main class="main-content">
+      <div class="section-header">
+        <h2 class="section-title">Upcoming Event Schedule</h2>
+        <div class="filter-wrapper">
+          <span class="filter-label">Filter Category:</span>
+          <div class="filter-container" id="categoryFilters">
+            <button class="filter-btn active" data-category="All">All</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table Wrapper for Responsiveness -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="event-table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-event">Event</th>
+                <th scope="col" class="col-date">Date</th>
+                <th scope="col" class="col-time">Start</th>
+                <th scope="col" class="col-time">End</th>
+                <th scope="col" class="col-status">Status</th>
+              </tr>
+            </thead>
+            <tbody id="eventTableBody">
+              <tr>
+                <td colspan="5" class="table-loading">Loading schedule data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <span class="table-info" id="tableCountInfo">Showing upcoming events</span>
+          <span class="timezone-note">Timezone fixed to Asia/Manila (UTC+8)</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Ragnarok Online Event Tracker &copy; 2026 &bull; Timings based on UTC+8 Server Time</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

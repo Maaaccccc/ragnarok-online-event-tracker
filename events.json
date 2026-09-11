@@ -1,0 +1,89 @@
+{
+  "recurring": [
+    {
+      "name": "Poring Catcher",
+      "category": "Daily",
+      "schedule": {
+        "type": "daily",
+        "times": ["18:00"],
+        "duration": 60
+      }
+    },
+    {
+      "name": "Devil Square",
+      "category": "Daily",
+      "schedule": {
+        "type": "daily",
+        "times": ["00:00", "12:00", "18:00", "21:00"],
+        "duration": 45
+      }
+    },
+    {
+      "name": "War of Emperium (WoE)",
+      "category": "WoE",
+      "schedule": {
+        "type": "weekly",
+        "days": ["Monday", "Thursday"],
+        "times": ["20:00"],
+        "duration": 120
+      }
+    },
+    {
+      "name": "Battleground Clash",
+      "category": "Battleground",
+      "schedule": {
+        "type": "weekly",
+        "days": ["Tuesday", "Friday", "Saturday"],
+        "times": ["19:00", "22:00"],
+        "duration": 90
+      }
+    },
+    {
+      "name": "Bloody Branch Invasion",
+      "category": "Rotation",
+      "schedule": {
+        "type": "interval",
+        "intervalDays": 2,
+        "startDate": "2026-09-01",
+        "times": ["15:00", "21:00"],
+        "duration": 60
+      }
+    },
+    {
+      "name": "Guild vs Guild Tournament",
+      "category": "Rotation",
+      "schedule": {
+        "type": "interval",
+        "intervalDays": 3,
+        "startDate": "2026-09-01",
+        "times": ["20:00"],
+        "duration": 90
+      }
+    },
+    {
+      "name": "Server EXP Boost Hour",
+      "category": "Daily",
+      "schedule": {
+        "type": "daily",
+        "times": ["21:00"],
+        "duration": 60
+      }
+    }
+  ],
+  "special": [
+    {
+      "name": "15th Anniversary Celebration",
+      "category": "Anniversary",
+      "type": "special",
+      "start": "2026-09-01T00:00:00+08:00",
+      "end": "2026-10-01T23:59:59+08:00"
+    },
+    {
+      "name": "Mid-Autumn Festival Campaign",
+      "category": "Seasonal",
+      "type": "special",
+      "start": "2026-09-10T00:00:00+08:00",
+      "end": "2026-09-25T23:59:59+08:00"
+    }
+  ]
+}

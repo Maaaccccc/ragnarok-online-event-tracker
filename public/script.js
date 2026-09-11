@@ -8,8 +8,7 @@ const state = {
   eventsData: null,
   activeFilter: 'All',
   timerInterval: null,
-  clockInterval: null,
-  lastRenderHash: ''
+  clockInterval: null
 };
 
 // Day names mapping
@@ -88,7 +87,6 @@ function generateOccurrences(nowMs, daysAhead = 14) {
   if (!state.eventsData) return [];
 
   const occurrences = [];
-  const nowComp = getUTC8Components(new Date(nowMs));
 
   // Scan range: 1 day in the past to daysAhead in the future
   for (let offset = -1; offset <= daysAhead; offset++) {
@@ -412,7 +410,7 @@ async function loadEvents() {
   const errorMessage = document.getElementById('errorMessage');
 
   try {
-    const response = await fetch('events.json', { cache: 'no-store' });
+    const response = await fetch('./events.json', { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to load events.json: HTTP ${response.status}`);
     }

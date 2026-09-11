@@ -410,7 +410,7 @@ async function loadEvents() {
   const errorMessage = document.getElementById('errorMessage');
 
   try {
-    const response = await fetch('./events.json', { cache: 'no-store' });
+    const response = await fetch('./public/events.json', { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to load events.json: HTTP ${response.status}`);
     }
